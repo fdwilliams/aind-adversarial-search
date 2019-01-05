@@ -123,7 +123,7 @@ if __name__ == "__main__":
             Example Usage:
             --------------
             - Run 40 games (10 rounds = 20 games x2 for fair matches = 40 games) against
-              the greedy agent with 4 parallel processes: 
+              the greedy agent with 4 parallel processes:
 
                 $python run_match.py -f -r 10 -o GREEDY -p 4
 
@@ -144,35 +144,35 @@ if __name__ == "__main__":
     parser.add_argument(
         '-f', '--fair_matches', action="store_true",
         help="""\
-            Run 'fair' matches to mitigate differences caused by opening position 
-            (useful for analyzing heuristic performance).  Setting this flag doubles 
+            Run 'fair' matches to mitigate differences caused by opening position
+            (useful for analyzing heuristic performance).  Setting this flag doubles
             the number of rounds your agent will play.  (See README for details.)
         """
     )
     parser.add_argument(
         '-r', '--rounds', type=int, default=NUM_ROUNDS,
         help="""\
-            Choose the number of rounds to play. Each round consists of two matches 
-            so that each player has a turn as first player and one as second player.  
-            This helps mitigate performance differences caused by advantages for either 
-            player getting first initiative.  (Hint: this value is very low by default 
-            for rapid iteration, but it should be increased significantly--to 50-100 
+            Choose the number of rounds to play. Each round consists of two matches
+            so that each player has a turn as first player and one as second player.
+            This helps mitigate performance differences caused by advantages for either
+            player getting first initiative.  (Hint: this value is very low by default
+            for rapid iteration, but it should be increased significantly--to 50-100
             or more--in order to increase the confidence in your results.
         """
     )
     parser.add_argument(
         '-o', '--opponent', type=str, default='MINIMAX', choices=list(TEST_AGENTS.keys()),
         help="""\
-            Choose an agent for testing. The random and greedy agents may be useful 
+            Choose an agent for testing. The random and greedy agents may be useful
             for initial testing because they run more quickly than the minimax agent.
         """
     )
     parser.add_argument(
         '-p', '--processes', type=int, default=NUM_PROCS,
         help="""\
-            Set the number of parallel processes to use for running matches.  WARNING: 
-            Windows users may see inconsistent performance using >1 thread.  Check the 
-            log file for time out errors and increase the time limit (add 50-100ms) if 
+            Set the number of parallel processes to use for running matches.  WARNING:
+            Windows users may see inconsistent performance using >1 thread.  Check the
+            log file for time out errors and increase the time limit (add 50-100ms) if
             your agent performs poorly.
         """
     )
